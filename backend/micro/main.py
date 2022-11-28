@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mail import Mail, Message
 from deta import Deta
+#from react.render import render_component
 
 app = Flask(__name__)
 app.config['MAIL_SERVER']='smtp.gmail.com'
@@ -14,10 +15,10 @@ mail = Mail(app)
 deta = Deta("b0yvgkme_J3ubJYBx9wYFeEBpwx7qk9sLuKykNjiD")
 db = deta.Base("db")
 
-@app.route('/home', methods=['GET','POST'])
-@app.route('/', methods=['GET','POST'])
+@app.route('/send', methods=['GET','POST'])
 def home():
-    db.put({"key": "counter", "counter": 0})
+    db.put({"key": "google-email-clicks", "counter": 0})
+    db.put({"key": "google-phish-clicks", "counter": 0})
 
     if request.method == 'POST':
         msg = Message(
@@ -41,20 +42,34 @@ def home():
             #    'justin.barragan@sjsu.edu', 'zayd.kudaimi@sjsu.edu', 'san.vu@sjsu.edu', 'james.yu@sjsu.edu'
             #]
         )
-        msg.subject = "Subject"
-        link = url_for('home', _external=True)
-        msg.body = '{}'.format(link)
+        msg.subject = "[IMPORTANT] Google Password Reset"
+        #email_html = render_component('/Users/james/Desktop/clt166all/phishing-awareness/phishing/src/email.js')
+        #msg.html = email_html
+        link = url_for('gmail', _external=True)
+        msg.body = """Hi, 
+Google received a request to recover access to the Google Account zkudaimi@gmail.com. 
+If you made this request, you don't need to take any action right now. You'll get an email after 6 hours with further instructions. 
+If you didn't make this request, you can {}. Learn more about suspicious account recovery requests. 
+Thank you for your patience. 
+Sincerely, 
+The Google Accounts Team""".format(link)
         mail.send(msg)
         return "Sent email."
-    return render_template('send.html')
+    return render_template('sent.html')
 
-@app.route('/pages', methods=['GET'])
-def pages():
-    db.put({"key": "counter", "counter": db.get("counter")["counter"]+1})
-    pass
+@app.route('/reset', methods=['GET'])
+def reset():
+    db.put({"key": "google-email-clicks", "counter": db.get("google-email-clicks")["counter"]+1})
+    return render_template('google_phish.html')
 
-@app.route('/page', methods=['GET'])
-def page():
-    return render_template("index.html", token="frontend")
+@app.route('/phished', methods=['GET'])
+def phished():
+    db.put({"key": "google-phish-clicks", "counter": db.get("google-phish-clicks")["counter"]+1})
+    return 'You have been phished by Team 1 in Professor Tarngs CS166 class(Do not worry, none of your information was saved).'
+
+@app.route('/gmail', methods=['GET'])
+def gmail():
+    return render_template('gmail.html')
+
 #if __name__ == "__main__":
 #    app.run(debug=True)

