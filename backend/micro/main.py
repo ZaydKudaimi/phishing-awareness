@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_mail import Mail, Message
 from deta import Deta
 
@@ -13,11 +13,12 @@ mail = Mail(app)
 
 deta = Deta("b0yvgkme_J3ubJYBx9wYFeEBpwx7qk9sLuKykNjiD")
 db = deta.Base("db")
-db.put({"counter": 0})
 
 @app.route('/home', methods=['GET','POST'])
 @app.route('/', methods=['GET','POST'])
 def home():
+    db.put({"key": "counter", "counter": 0})
+
     if request.method == 'POST':
         msg = Message(
             "Hey", 
@@ -49,9 +50,12 @@ def home():
 
 @app.route('/pages', methods=['GET'])
 def pages():
-    db.put({"counter": db.get("counter")+1})
-    return render_template('pages.html')
-    #return the page
+    db.put({"key": "counter", "counter": db.get("counter")["counter"]+1})
+    pass
+
+@app.route('/page', methods=['GET'])
+def page():
+    pass
 
 #if __name__ == "__main__":
 #    app.run(debug=True)
