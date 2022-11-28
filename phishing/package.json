@@ -51,6 +51,7 @@
     "react-dom": "^18.2.0",
     "react-refresh": "^0.11.0",
     "react-render": "^4.0.0",
+    "react-spa-prerender": "^1.0.14",
     "resolve": "^1.20.0",
     "resolve-url-loader": "^4.0.0",
     "sass-loader": "^12.3.0",
@@ -68,7 +69,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "postbuild": "react-spa-prerender"
   },
   "eslintConfig": {
     "extends": [
