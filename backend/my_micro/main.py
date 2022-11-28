@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mail import Mail, Message
-from deta import Deta
 
 app = Flask(__name__)
 app.config['MAIL_SERVER']='smtp.gmail.com'
@@ -10,10 +9,6 @@ app.config['MAIL_PASSWORD'] = 'oiqypvbuoabcrbpy'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
-
-deta = Deta("b0yvgkme_J3ubJYBx9wYFeEBpwx7qk9sLuKykNjiD")
-db = deta.Base("db")
-db.put({"counter": 0})
 
 @app.route('/home', methods=['GET','POST'])
 @app.route('/', methods=['GET','POST'])
@@ -46,12 +41,3 @@ def home():
         mail.send(msg)
         return "Sent email."
     return render_template('index.html')
-
-@app.route('/pages', methods=['GET'])
-def pages():
-    db.put({"counter": db.get("counter")+1})
-    return render_template('pages.html')
-    #return the page
-
-#if __name__ == "__main__":
-#    app.run(debug=True)

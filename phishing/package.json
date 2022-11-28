@@ -2,7 +2,6 @@
   "name": "phishing",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tt2t1g.deta.dev/page",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
