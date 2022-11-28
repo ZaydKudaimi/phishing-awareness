@@ -13,11 +13,12 @@ mail = Mail(app)
 
 deta = Deta("b0yvgkme_J3ubJYBx9wYFeEBpwx7qk9sLuKykNjiD")
 db = deta.Base("db")
-db.put({"counter": 0})
 
 @app.route('/home', methods=['GET','POST'])
 @app.route('/', methods=['GET','POST'])
 def home():
+    db.put({"key": "counter", "counter": 0})
+
     if request.method == 'POST':
         msg = Message(
             "Hey", 
@@ -45,13 +46,15 @@ def home():
         msg.body = '{}'.format(link)
         mail.send(msg)
         return "Sent email."
-    return render_template('index.html')
+    return render_template('send.html')
 
 @app.route('/pages', methods=['GET'])
 def pages():
-    db.put({"counter": db.get("counter")+1})
-    return render_template('pages.html')
-    #return the page
+    db.put({"key": "counter", "counter": db.get("counter")["counter"]+1})
+    pass
 
+@app.route('/page', methods=['GET'])
+def page():
+    return render_template("index.html", token="frontend")
 #if __name__ == "__main__":
 #    app.run(debug=True)
