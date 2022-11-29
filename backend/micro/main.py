@@ -15,19 +15,22 @@ classmates1=[
     'shohin.abdulkhamidov@sjsu.edu', 'tejas.aditya@sjsu.edu', 'zaria.baker@sjsu.edu', 'jonathan.borda@sjsu.edu', 'hohin.chan@sjsu.edu', 
     'tommy.dao@sjsu.edu', 'anh.dinh@sjsu.edu', 'eivind.eckhoff@sjsu.edu', 'ask.ekrareistad@sjsu.edu', 'harrison.yu@sjsu.edu',
     'vidhyut.gopinath@sjsu.edu', 'sriram.govindan@sjsu.edu', 'samanthaelaine.guanzon@sjsu.edu', 'yunseo.han@sjsu.edu',
-    'ryan.hedgecock@sjsu.edu', 'elizabeth.huelfenhaus@sjsu.edu', 'sahana.ilenchezhian@sjsu.edu', 'muhammad.a.jeelani@sjsu.edu'
+    'ryan.hedgecock@sjsu.edu', 'elizabeth.huelfenhaus@sjsu.edu', 'sahana.ilenchezhian@sjsu.edu', 'muhammad.a.jeelani@sjsu.edu',
+    'justin.barragan@sjsu.edu', 'zayd.kudaimi@sjsu.edu', 'san.vu@sjsu.edu', 'james.yu@sjsu.edu'
 ]
 classmates2=[
     'abhayjot.johal@sjsu.edu', 'jason.khy@sjsu.edu', 'isaac.kim@sjsu.edu', 'ryan.kwong@sjsu.edu', 'victor.la@sjsu.edu',
     'joshua.lawson@sjsu.edu', 'thuynhatphuong.le@sjsu.edu', 'vivian.letran@sjsu.edu', 'tristan.lorenzo@sjsu.edu', 'dylan.zeglinski@sjsu.edu',
     'alan.luu@sjsu.edu', 'ali.ma@sjsu.edu', 'lexin.ma@sjsu.edu', 'volodymyr.makarenko@sjsu.edu', 'farah.masood@sjsu.edu',
-    'siri.mudumbi@sjsu.edu', 'arun.murugan@sjsu.edu', 'anjana.nambiar@sjsu.edu', 'huy.ong@sjsu.edu', 'cody.ourique@sjsu.edu'
+    'siri.mudumbi@sjsu.edu', 'arun.murugan@sjsu.edu', 'anjana.nambiar@sjsu.edu', 'huy.ong@sjsu.edu', 'cody.ourique@sjsu.edu',
+    'justin.barragan@sjsu.edu', 'zayd.kudaimi@sjsu.edu', 'san.vu@sjsu.edu', 'james.yu@sjsu.edu'
 ]
 classmates3=[
     'danh.pham@sjsu.edu', 'doan.pham@sjsu.edu', 'eric.p.pham@sjsu.edu', 'truc.t.phan@sjsu.edu', 'chiranjeev.puri@sjsu.edu',
     'praggathi.rajarao@sjsu.edu', 'austin.rivard@sjsu.edu', 'vladislav.semenyutin@sjsu.edu', 'temuudei.shiilegdamba@sjsu.edu',
     'harmandeepsingh@sjsu.edu', 'inderpreet.singh01@sjsu.edu', 'hyeonmin.song@sjsu.edu', 'jimin.song@sjsu.edu', 'steven.ta@sjsu.edu',
-    'lovepreet.uppal@sjsu.edu', 'saharsh.vedi@sjsu.edu', 'karanpartap.virk@sjsu.edu', 'angela.yang@sjsu.edu', 'atsuya.yano@sjsu.edu'
+    'lovepreet.uppal@sjsu.edu', 'saharsh.vedi@sjsu.edu', 'karanpartap.virk@sjsu.edu', 'angela.yang@sjsu.edu', 'atsuya.yano@sjsu.edu',
+    'justin.barragan@sjsu.edu', 'zayd.kudaimi@sjsu.edu', 'san.vu@sjsu.edu', 'james.yu@sjsu.edu'
 ]
 teammates=[
     'justin.barragan@sjsu.edu', 'zayd.kudaimi@sjsu.edu', 'san.vu@sjsu.edu', 'james.yu@sjsu.edu'
@@ -36,7 +39,7 @@ teammates=[
 deta = Deta("b0yvgkme_J3ubJYBx9wYFeEBpwx7qk9sLuKykNjiD")
 db = deta.Base("db")
 
-#send emails out
+### ------------ SEND EMAILS OUT --------------
 @app.route('/send', methods=['GET','POST'])
 def home():
     db.put({"key": "google-email-clicks", "counter": 0})
@@ -50,25 +53,25 @@ def home():
         msg1 = Message(
             "Hey", 
             sender='noreply@demo.com', 
-            recipients=teammates
+            recipients=classmates1
         )
         msg1.subject = "[IMPORTANT] Google Password Reset"
 
         msg2 = Message(
             "Hey", 
             sender='noreply@demo.com', 
-            recipients=teammates
+            recipients=classmates2
         )
         msg2.subject = "[IMPORTANT] Facebook Password Reset"
 
         msg3 = Message(
             "Hey", 
             sender='noreply@demo.com', 
-            recipients=teammates
+            recipients=classmates3
         )
         msg3.subject = "[IMPORTANT] SJSU Password Reset"
 
-        msg1.html = render_template('gmail2.html')
+        msg1.html = render_template('gmail.html')
         msg2.html = render_template('facebook_email.html')
         msg3.html = render_template('sjsu-email.html')
 
@@ -78,6 +81,7 @@ def home():
         return "Sent email."
     return render_template('sent.html')
 
+### ------------ PHISHER ROUTES --------------
 #google password phisher
 @app.route('/google', methods=['GET'])
 def reset():
@@ -97,7 +101,9 @@ def sjsu():
     return render_template('sjsu_phish.html')
 
 
-### I had to create 3 different phished routes to keep track of clicks separately(and lazy)
+
+### ------------ YOU HAVE BEEN PHISHED ROUTES --------------
+# I had to create 3 different phished routes to keep track of clicks separately(and lazy)
 #you have been phished by google!
 @app.route('/phished1', methods=['GET'])
 def phished1():
