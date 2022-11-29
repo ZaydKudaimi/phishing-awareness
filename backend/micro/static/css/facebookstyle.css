@@ -1,0 +1,181 @@
+* {
+    font-family: 'Open Sans';
+}
+
+html {
+    background-color: rgb(241, 241, 241);
+    margin: -10px;
+}
+
+.outer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 600px;
+    box-shadow: 0px 2px 6px rgb(204, 204, 204);
+    margin-bottom: 70px;
+    padding-bottom: 25px;
+    padding-top: 0px;
+}
+
+.linebreak {
+    color: rgb(245, 245, 245);
+}
+
+.header {
+    background-color: white;
+    padding-top: 5px;
+    margin-bottom: 100px;
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#password {
+    border-radius: 6px;
+    border-color: rgb(206, 206, 206);
+    border-style: solid;
+    border-width: 0.5px;
+    height: 60px;
+    width: 88%;
+    font-size: 16px;
+    margin: 10px 0px 20px 0px;
+    padding-left: 13px;
+}
+
+.bottom-buttons {
+    margin-top: 15px;
+    float: right;
+}
+
+#checkbox {
+    margin-right: 10px;
+    float: left;
+    width: 25px;
+    height: 25px;
+}
+
+.home-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.head-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.people-icon {
+    width: 60px;
+    height: 40px; 
+}
+
+.checkbox-div {
+    margin-bottom: 20px;
+}
+
+.facebook-logo {
+    width: 50px;
+}
+
+.cancel {
+    color: black;
+    font-weight: 800;
+    background-color: lightgray;
+    padding: 10px 20px 10px 20px;
+    border-style: none;
+    border-radius: 6px;
+    margin-right: 5px;
+}
+
+.continue {
+    color: white;
+    font-weight: 800;
+    background-color: rgb(0, 89, 255);
+    padding: 10px 20px 10px 20px;
+    border-style: none;
+    border-radius: 6px;
+}
+
+.cancel, .continue {
+    width: 100px;
+}
+
+.question-button {
+    height: 50px;
+    width: 6%;
+    font-weight: 600;
+    font-size: 20px;
+    border-style: none;
+    border-radius: 10px;
+}
+
+.footer {
+    padding-top: 150px;
+}
+
+.footer-options {
+    display: flex;
+    gap: 25px;
+
+}
+
+.header-searchbar {
+    padding: 5px 0 15px 20px;
+    border-radius: 10px;
+    display: flex;
+    gap: 0px;
+    align-items: center;
+}
+
+.nav-searchbar {
+    border-radius: 20px;
+    border-style: none;
+    height: 30px;
+    background-color: rgb(241, 241, 241);
+    padding: 3px 0 3px 10px;
+}
+
+.middle-nav-buttons {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+.right-nav-buttons {
+    display: flex;
+    gap: 15px;
+    padding-right: 20px;
+    align-items: center;
+}
+
+.first-item {
+    list-style-type: none;
+}
+
+.friends-button {
+    height: 40px;
+    border-style: none;
+    border-radius: 20px;
+    padding: 8px 14px 8px 14px;
+    font-weight: 600;
+}
+
+.notifications-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+}

