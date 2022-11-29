@@ -42,12 +42,12 @@ db = deta.Base("db")
 ### ------------ SEND EMAILS OUT --------------
 @app.route('/send', methods=['GET','POST'])
 def home():
-    db.put({"key": "google-email-clicks", "counter": 0})
-    db.put({"key": "google-phish-clicks", "counter": 0})
-    db.put({"key": "facebook-email-clicks", "counter": 0})
-    db.put({"key": "facebook-phish-clicks", "counter": 0})
-    db.put({"key": "sjsu-email-clicks", "counter": 0})
-    db.put({"key": "sjsu-phish-clicks", "counter": 0})
+    #db.put({"key": "google-email-clicks", "counter": 0})
+    #db.put({"key": "google-phish-clicks", "counter": 0})
+    #db.put({"key": "facebook-email-clicks", "counter": 0})
+    #db.put({"key": "facebook-phish-clicks", "counter": 0})
+    #db.put({"key": "sjsu-email-clicks", "counter": 0})
+    #db.put({"key": "sjsu-phish-clicks", "counter": 0})
 
     if request.method == 'POST':
         msg1 = Message(
